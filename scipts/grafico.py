@@ -65,7 +65,7 @@ def DesnharTela():
     pass
 
 #Função para iniciar a janela e manter ela ativa
-def ExecultarGrafico():
+def ExecutarGrafico():
     #Entradas: Nenhuma
     #Saidas: Nenhuma
     #Cria janela:
