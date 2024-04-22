@@ -1,12 +1,12 @@
 #Modulo de controle do jogo
 
-#Bibliotecas----------------------------------------------------------------------------------------------------
+#Bibliotecas
 import threading
 import pygame
 import grafico
 import time
 
-#Variaveis globais-----------------------------------------------------------------------------------------------
+#Variaveis globais
 ehJogoExecultando = True
 
 #Função para tratar os eventos capturados no modulo grafico
@@ -22,7 +22,6 @@ def TratamentoEventos():
                 grafico.ParaExeculcao()
                 ehJogoExecultando = False
 
-
 #Função para mandar um texto para ser escrito na tela para o modulo grafico, em um estilo de maquina de escrever (letra por letra)
 def Escrever(txt): #consertar depois
     #Entradas: (String) texto a ser escrito na tela
@@ -33,7 +32,6 @@ def Escrever(txt): #consertar depois
         grafico.EscreverNaTela(mensagem)
         time.sleep(0.5)
 
-
 #Crias trheads:
 threadGrafico = threading.Thread(target=grafico.ExecultarGrafico)
 threadEventos = threading.Thread(target=TratamentoEventos)
@@ -41,10 +39,3 @@ threadEventos.start()
 threadGrafico.start()
 threadEventos.join()
 threadGrafico.join()
-
-
-
-
-
-
-
