@@ -3,7 +3,7 @@
 import pygame
 
 #Variaveis globais
-ehJogoExecultando = True #controle de execução da aplicação grafica
+ehJogoExecutando = True #controle de execução da aplicação grafica
 
 #variaveis para a comunicação de eventos entre o modulo grafico e o controle
 evento = "" 
@@ -35,8 +35,8 @@ def EscreverNaTela(txt):
 def ParaExeculcao():
     #Entradas: Nenhuma
     #Saidas: Nenhuma
-    global ehJogoExecultando
-    ehJogoExecultando = False
+    global ehJogoExecutando
+    ehJogoExecutando = False
 
 #Função para comunicação do evento entre o modulo grafico e controle
 def EntregaEventoAtual():
@@ -73,7 +73,7 @@ def ExecultarGrafico():
     janela = pygame.display.set_mode([1472 , 704]) 
     titulo = pygame.display.set_caption("Whispers of the past") 
     #Mantem a janela aberta:
-    while ehJogoExecultando:
+    while ehJogoExecutando:
         pygame.display.update() #atualiza a tela 
         DesnharTela()
         for eventos in  pygame.event.get():
