@@ -1,18 +1,19 @@
 #Modulo para controlar a janela grafica
-#Bibliotecas---------------------------------------------------------------------------------
+#Bibliotecas
 import pygame
 
-#Variaveis globais---------------------------------------------------------------------------
+#Variaveis globais
 ehJogoExecultando = True #controle de execução da aplicação grafica
 
-    #variaveis para a comunicação de eventos entre o modulo grafico e o controle
+#variaveis para a comunicação de eventos entre o modulo grafico e o controle
 evento = "" 
 alertaEvento = False
-    #variaveis para escrever textos na janela
+
+#variaveis para escrever textos na janela
 textoMensagem = ""
 ehNovaMensagem = False
 
-#Implementação das funções-------------------------------------------------------------------
+#Implementação das funções
 
 #Resquisito 1:
 #Função que pega a posição do mouse dentro da janela
@@ -63,7 +64,6 @@ def EventoAcionado(eventoCapturado):
 def DesnharTela():
     pass
 
-
 #Função para iniciar a janela e manter ela ativa
 def ExecultarGrafico():
     #Entradas: Nenhuma
@@ -79,11 +79,3 @@ def ExecultarGrafico():
         for eventos in  pygame.event.get():
             EventoAcionado(eventos)
             
-
-        
-            
-        
-    
-
-
-
