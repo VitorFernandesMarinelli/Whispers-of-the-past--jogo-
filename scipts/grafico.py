@@ -32,7 +32,7 @@ def EscreverNaTela(txt):
     ehNovaMensagem = True
     
 #Função para finalizar a janela
-def ParaExeculcao():
+def ParaExecucao():
     #Entradas: Nenhuma
     #Saidas: Nenhuma
     global ehJogoExecutando
