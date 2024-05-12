@@ -1,18 +1,19 @@
 #Modulo para controlar a janela grafica
-#Bibliotecas---------------------------------------------------------------------------------
+#Bibliotecas
 import pygame
 
-#Variaveis globais---------------------------------------------------------------------------
-ehJogoExecultando = True #controle de execução da aplicação grafica
+#Variaveis globais
+ehJogoExecutando = True #controle de execução da aplicação grafica
 
-    #variaveis para a comunicação de eventos entre o modulo grafico e o controle
+#variaveis para a comunicação de eventos entre o modulo grafico e o controle
 evento = "" 
 alertaEvento = False
-    #variaveis para escrever textos na janela
+
+#variaveis para escrever textos na janela
 textoMensagem = ""
 ehNovaMensagem = False
 
-#Implementação das funções-------------------------------------------------------------------
+#Implementação das funções
 
 #Resquisito 1:
 #Função que pega a posição do mouse dentro da janela
@@ -31,11 +32,11 @@ def EscreverNaTela(txt):
     ehNovaMensagem = True
     
 #Função para finalizar a janela
-def ParaExeculcao():
+def ParaExecucao():
     #Entradas: Nenhuma
     #Saidas: Nenhuma
-    global ehJogoExecultando
-    ehJogoExecultando = False
+    global ehJogoExecutando
+    ehJogoExecutando = False
 
 #Função para comunicação do evento entre o modulo grafico e controle
 def EntregaEventoAtual():
@@ -63,9 +64,8 @@ def EventoAcionado(eventoCapturado):
 def DesnharTela():
     pass
 
-
 #Função para iniciar a janela e manter ela ativa
-def ExecultarGrafico():
+def ExecutarGrafico():
     #Entradas: Nenhuma
     #Saidas: Nenhuma
     #Cria janela:
@@ -73,17 +73,9 @@ def ExecultarGrafico():
     janela = pygame.display.set_mode([1472 , 704]) 
     titulo = pygame.display.set_caption("Whispers of the past") 
     #Mantem a janela aberta:
-    while ehJogoExecultando:
+    while ehJogoExecutando:
         pygame.display.update() #atualiza a tela 
         DesnharTela()
         for eventos in  pygame.event.get():
             EventoAcionado(eventos)
             
-
-        
-            
-        
-    
-
-
-
