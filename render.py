@@ -112,6 +112,13 @@ def objects_render(state,previous_scene, current_scene,Tv_On,inventory):
         render.append(30) #tela creditos final A
     elif current_scene == "secreto":
         render.append(43) #fundo
+        if state == "escolha":
+            render.append(44) #UI de escolha
+        elif state == "Final_B":
+            render.append(31)
+        elif state == "Final_C":
+            render.append(32)
+
     
     i = 20 # imagens do 20 ao 24
     if state != "observavel":

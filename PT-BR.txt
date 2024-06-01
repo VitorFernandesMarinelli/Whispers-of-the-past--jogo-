@@ -84,4 +84,15 @@ Dalila: Então volta lá para a sala, eu vou preparar o seu jantar.
 Desconhecido: a..judaa.
 Dalila: Fique quieto! Porcos não devem falar!
 eof
-
+Renato: Desculpa, mas eu preciso viver, ... pode continuar mãe.
+Renato: Eu não posso mãe, me desculpa mãe
+*POW!!*
+Renato: Não se preoucupe moço, eu vou chamar ajuda.
+Renato: Eu tambem vou te ajudar mãe.
+...
+Telefone: Boa noite, aqui é o serviço de policia, qual o sua nescessidade?
+Renato: Eu preciso de ajuda.
+Telefone: Fique calmo, estamos indo.
+*beeee....
+Renato: Agora a ajuda vai chegar.
+eof

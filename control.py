@@ -59,6 +59,8 @@ def take_events():
             final_A_cotinue()
         elif state == "cutsene_porao":
             continus_cutscene_porao()
+        elif state == "cutscene_c":
+            continus_cutscene_C()
         elif iten_description == True:
             graphics.clear_text()
             disable_text_box()
@@ -68,9 +70,15 @@ def take_events():
         protect_miss_click = True
         check_collision()
     elif event == "jump": #pula curticnes
+        skip_text = True
+        current_id_text = -2
+        time.sleep(0.2)
         if state == "curticneInicial": 
-            current_id_text = -2
             continue_initiation_cutscene()
+        elif state == "cutsene_porao":
+            continus_cutscene_porao()
+        elif state == "cutscene_c":
+            continus_cutscene_C()
     event = ""
     graphics.event_handled()
     time.sleep(0.2)
@@ -120,13 +128,13 @@ def change_tv_states():
     new_id, old_id = render.turn_Tv(Tv_ON)
     change_especific_imagem(new_id,old_id)
 
-#implementar---------------------------------------------------
+#segue o roteiro da cutscene do porão
 def continus_cutscene_porao(): 
     global current_id_text,current_images
     graphics.clear_text()
     id = (current_id_text + 1)
     text = texts[id]
-    if text == "eof":
+    if text == "eof" or current_id_text == -2:
         current_id_text = -1
         change_scene("secreto","escolha")
     else:
@@ -137,6 +145,7 @@ def continus_cutscene_porao():
         perpare_to_write(id)
         current_id_text = id
 
+#inicia a cutscene do porão
 def cutscene_porao_start():
     global current_id_text
     current_id_text = 49
@@ -144,6 +153,25 @@ def cutscene_porao_start():
     activate_text_box()
     perpare_to_write(current_id_text)
 
+def continus_cutscene_C(): 
+    global current_id_text,current_images
+    graphics.clear_text()
+    id = (current_id_text + 1)
+    text = texts[id]
+    if text == "eof" or current_id_text == -2:
+        current_id_text = -1
+        change_scene("secreto","Final_C")
+    else:
+        perpare_to_write(id)
+        current_id_text = id
+
+def start_cutscene_C():
+    global current_images, current_position
+    id_start_dialogue = 87
+    change_scene("secreto","cutscene_c")
+    time.sleep(0.5)
+    activate_text_box()
+    perpare_to_write(id_start_dialogue)
 
 #verifica se o mouse clicou em algo valido
 def check_collision():
@@ -151,7 +179,7 @@ def check_collision():
     pos = graphics.get_mouse_possition()
     idColide = position.colid_object(pos)
     if idColide != -1: #precionou um objeto existente no contexto atual do jogo
-        if state != "observavel":
+        if state != "observavel" and state != "escolha":
             if current_scene == "sala": #SALA-------------------------------
                 if idColide == 0: #TV
                     change_tv_states()
@@ -280,6 +308,15 @@ def check_collision():
                         activate_text_box()
                         perpare_to_write(38)
                         iten_description = True                                           
+        elif state == "escolha":
+            if idColide == 0: #aceitou
+                change_scene("secreto","secreto")
+                activate_text_box()
+                perpare_to_write(86)
+                time.sleep(10)
+                change_scene(current_scene,"Final_B")
+            else:
+                start_cutscene_C()
         else: # OBSERVAVEL--------------------------
             if idColide == 0: #seta para sair
                 change_scene(current_scene,"jogando")
@@ -323,7 +360,6 @@ def check_collision():
                     iten_description = True
                 else: #inseriu um digito
                     number_of_digits = password.how_digits_password()
-                    print(number_of_digits)
                     render.change_passaword(number_of_digits)
                     refsh_scene()
 
@@ -351,6 +387,7 @@ def change_scene(new_scene,new_state):
     position.load_possicion_objects_interactvs(current_scene,state)
     current_images = images_to_send
     current_position = position_to_send
+
 
 #funcao que altera a possicao de um objeto já renderizado, usado para fazer animacoes
 def chagen_possition(id, new_possition):

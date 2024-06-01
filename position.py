@@ -6,6 +6,7 @@ List_of_interactives = []
 
 def load_possicion_objects_interactvs(scene,state):
     global List_of_interactives
+    print(state)
     list_temporary = []
     if state == "espera":
         list_temporary.append(pygame.Rect(452,142,486,254)) # id = 0 → Tv 
@@ -64,7 +65,10 @@ def load_possicion_objects_interactvs(scene,state):
             list_temporary.append(pygame.Rect(772,368,105,105)) # id = 6 → digito (6)
             list_temporary.append(pygame.Rect(528,488,103,105)) # id = 7 → digito (7)        
             list_temporary.append(pygame.Rect(648,488,105,105)) # id = 8 → digito (8) 
-            list_temporary.append(pygame.Rect(772,488,105,105)) # id = 9 → digito (9)                    
+            list_temporary.append(pygame.Rect(772,488,105,105)) # id = 9 → digito (9)     
+    elif state == "escolha":
+        list_temporary.append(pygame.Rect(0,0,721,703)) # id = 0 → esolha aceitar
+        list_temporary.append(pygame.Rect(722,0,1471,703)) #id = 1 → escolha recusar         
     List_of_interactives = list_temporary
 
 #fornece a possção dos elementos pelo ID
